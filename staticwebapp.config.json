@@ -11,7 +11,7 @@
     "responseOverrides": {
         "403": {
             "statusCode": 302,
-            "redirect": "swa-frontdoor-fedze3gzh6fpabhw.b01.azurefd.net"
+            "redirect": "https://swa-frontdoor-fedze3gzh6fpabhw.b01.azurefd.net"
         }
     }
 }
