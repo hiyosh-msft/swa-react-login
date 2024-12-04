@@ -2,8 +2,16 @@
     "networking": {
         "allowedIpRanges": ["AzureFrontDoor.Backend"]
     },
+
     "forwardingGateway": {
         "requiredHeaders": {"X-Azure-FDID" : "8a312ac9-ec35-4b4a-8b44-668fda7c8109"},
         "allowedForwardedHosts": ["swa-frontdoor-fedze3gzh6fpabhw.b01.azurefd.net"]
+    },
+
+    "responseOverrides": {
+        "403": {
+            "statusCode": 302,
+            "redirect": "swa-frontdoor-fedze3gzh6fpabhw.b01.azurefd.net"
+        }
     }
 }
