@@ -1,39 +1,9 @@
 {
-    "routes": [
-        {
-            "route": "/index.html",
-            "allowedRoles": ["authenticated"]
-        },
-        {
-            "route": "/login",
-            "redirect": "/.auth/login/aad"
-        },
-        {
-             "route": "/logout",
-             "redirect": "/.auth/logout"
-        }
-    ],
-    
-    "navigationFallback": {
-        "rewrite": "/index.html"
+    "networking": {
+        "allowedIpRanges": ["AzureFrontDoor.Backend"]
     },
-    
-    "responseOverrides": {
-        "401": {
-          "redirect": "/login",
-          "statusCode": 302
-        }
-    },
-    
-    "auth": {
-    "identityProviders": {
-      "azureActiveDirectory": {
-        "registration": {
-          "openIdIssuer": "https://login.microsoftonline.com/903bec91-9c28-4ce5-87c0-5cae1923aa18/v2.0",
-          "clientIdSettingName": "AZURE_CLIENT_ID",
-          "clientSecretSettingName": "AZURE_CLIENT_SECRET"
-        }
-      }
+    "forwardingGateway": {
+        "requiredHeaders": {"X-Azure-FDID" : "8a312ac9-ec35-4b4a-8b44-668fda7c8109"},
+        "allowedForwardedHosts": ["swa-frontdoor-fedze3gzh6fpabhw.b01.azurefd.net"]
     }
-  }
 }
