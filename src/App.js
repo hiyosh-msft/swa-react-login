@@ -1,7 +1,7 @@
 import React from 'react';
 
 function App() {
-  const value = 'World2';
+  const value = 'World3';
   return <div>Hello {value}</div>;
 }
 
